@@ -40,12 +40,13 @@ public class FishingListeners implements Listener {
 
     @EventHandler
     public void onFishyBusiness(PlayerAdvancementCriterionGrantEvent e) {
-        if(e.getAdvancement().getKey().equals(NamespacedKey.fromString("husbandry/fishy_business")))
+        if(e.getAdvancement().getKey().equals(NamespacedKey.fromString("husbandry/fishy_business"))) {
             // If the player has just caught a fish, allow them to get the advancement. Otherwise, cancel it
-            if(e.getPlayer().hasMetadata("CaughtFish")) {
+            if (e.getPlayer().hasMetadata("CaughtFish")) {
                 e.getPlayer().removeMetadata("CaughtFish", SimpleBait.getInstance());
                 return;
             }
-        e.setCancelled(true);
+            e.setCancelled(true);
+        }
     }
 }
